@@ -17,7 +17,7 @@ import java.sql.Connection;
  * @create 2022-07-02 16:23
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring-persist-mybatis.xml"})
+@ContextConfiguration("classpath:spring-persist-mybatis.xml")
 public class CrowdTest {
     @Autowired
     private DataSource dataSource;
