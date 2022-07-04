@@ -2,6 +2,8 @@ package org.jxiang.crowd.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.jxiang.crowd.entity.Admin;
+import org.jxiang.crowd.mapper.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -22,9 +24,20 @@ public class CrowdTest {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private AdminMapper adminMapper;
+
+    @Test
+    public void testInsertAdmin() {
+        int r = adminMapper.insertSelective(new Admin(null, "tom", "123123", "汤姆", "tom@jxiang.org", null));
+        System.out.println("受影响行数:" + r);
+    }
+
+
     @Test
     public void testConnection() throws Exception {
         Connection connection = dataSource.getConnection();
         System.out.println(connection);
+
     }
 }

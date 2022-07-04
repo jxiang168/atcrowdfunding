@@ -16,4 +16,15 @@
         <!-- 数据库驱动全类名 -->
         <property name="driverClassName" value="${jdbc.driver}"/>
     </bean>
+
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*Mapper.xml"/>
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="org.jxiang.crowd.mapper"/>
+    </bean>
+
 </beans>
