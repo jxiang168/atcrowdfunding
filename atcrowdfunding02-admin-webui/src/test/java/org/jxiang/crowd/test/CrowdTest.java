@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.jxiang.crowd.entity.Admin;
 import org.jxiang.crowd.mapper.AdminMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -29,8 +31,12 @@ public class CrowdTest {
 
     @Test
     public void testInsertAdmin() {
-        int r = adminMapper.insertSelective(new Admin(null, "tom", "123123", "汤姆", "tom@jxiang.org", null));
-        System.out.println("受影响行数:" + r);
+//        int r = adminMapper.insertSelective(new Admin(null, "tom", "123123", "汤姆", "tom@jxiang.org", null));
+        Admin admin = adminMapper.selectByPrimaryKey(1);
+//        System.out.println(admin);
+//        System.out.println("受影响行数:" + r);
+        Logger logger = LoggerFactory.getLogger(this.getClass());
+        logger.info(admin.toString());
     }
 
 
