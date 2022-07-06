@@ -12,7 +12,6 @@
     <meta charset="UTF-8"/>
     <base href="${pageContext.request.contextPath}/"/>
     <title>Title</title>
-    <script src="jquery/jquery-2.1.1.min.js"/>
 </head>
 <body>
 <p><a href="test/ssm.html">测试ssm整合环境</a></p>
